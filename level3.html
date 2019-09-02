@@ -6,7 +6,7 @@
 -->
 <html>
   <head>
-    <title>Curry For Dev : Level 1</title>
+    <title>Curry For Dev : Level 3</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -27,13 +27,13 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$(".head").load("header.html")
-			$("nav").load("nav.html")
-			$("footer").load("footer.html")
-		});
-	</script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".head").load("header.html");
+        $("nav").load("nav.html");
+        $("footer").load("footer.html");
+      });
+    </script>
   </head>
   <body class="subpage">
     <!-- Header -->
@@ -47,17 +47,18 @@
       <div class="inner">
         <div class="box">
           <div class="image fit">
-            <img src="images/level1.jpg" alt="" />
+            <img src="images/level3.jpg" alt="" />
           </div>
           <div class="content align-center">
             <header>
-              <h2>Level 1</h2>
-              <p lang="ko">당신은 코딩 신생아군요!</p>
+              <h2>Level 3</h2>
+              <p lang="ko">당신은 코딩 학생입니다!</p>
             </header>
             <hr />
             <p lang="ko">
-			  겁내지 말아요!<br>
-			  아이와 같은 순진무구함으로 도전하다보면 어느새 부쩍 성장한 자신을 보고 있을테니까요!
+              이제는 알고리즘 푸는 것도 습관이 되셨겠군요! 하지만 배움은 끝이
+              없답니다.<br />
+              혹 앞으로 나아가기 막막하다면 주변 사람들과 의견을 나눠보세요!
             </p>
           </div>
         </div>
@@ -66,7 +67,7 @@
     <a href="" target="blank"></a>
     <!-- Table -->
     <script>
-      var jsonLocation = "assets/json/level1.json";
+      var jsonLocation = "assets/json/level3.json";
       $.getJSON(jsonLocation, function(data) {
         $.each(data, function(I, item) {
           let name = `<tr><td lang="ko"><strong><a style="color: #ffffff" target="_blank" href="${item.url}">${item.name}</a></strong></td>`;
@@ -120,8 +121,11 @@
     >
 
     <!-- Footer -->
-    <footer id="footer" class="wrapper">
-	</footer>
-	<script id="dsq-count-scr" src="//curryfordev.disqus.com/count.js" async></script>
+    <footer id="footer" class="wrapper"></footer>
+    <script
+      id="dsq-count-scr"
+      src="//curryfordev.disqus.com/count.js"
+      async
+    ></script>
   </body>
 </html>
