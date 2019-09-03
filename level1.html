@@ -21,19 +21,22 @@
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.js"
-      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$(".head").load("header.html")
-			$("nav").load("nav.html")
-			$("footer").load("footer.html")
-		});
-	</script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".head").load("header.html");
+        $("nav").load("nav.html");
+        $("footer").load("footer.html");
+      });
+      downExcel = () => {
+        $("#level").table2excel({
+          exclude: ".excludeThisClass",
+          name: "Level 1",
+          filename: "level1.xls",
+          });
+      }
+    </script>
   </head>
   <body class="subpage">
     <!-- Header -->
@@ -56,8 +59,9 @@
             </header>
             <hr />
             <p lang="ko">
-			  겁내지 말아요!<br>
-			  아이와 같은 순진무구함으로 도전하다보면 어느새 부쩍 성장한 자신을 보고 있을테니까요!
+              겁내지 말아요!<br />
+              아이와 같은 순진무구함으로 도전하다보면 어느새 부쩍 성장한 자신을
+              보고 있을테니까요!
             </p>
           </div>
         </div>
@@ -80,12 +84,13 @@
           document.getElementById("contents").innerHTML =
             document.getElementById("contents").innerHTML + tuple;
         });
+        document.getElementById("date").innerHTML = "2019.09.03";
       });
     </script>
     <section id="four" class="wrapper style3">
       <div class="inner">
         <div class="table-wrapper">
-          <table class="alt">
+          <table id="level" class="alt">
             <thead>
               <tr>
                 <th>Name</th>
@@ -95,7 +100,14 @@
               </tr>
             </thead>
             <tbody id="contents"></tbody>
+            <tfoot>
+              <tr><td colspan="3"></td><td style="text-align: right;" id="date"></td></tr>
+            </tfoot>
           </table>
+        </div>
+        <br>
+        <div style="width: 20%; float: right;">
+        <a onclick="downExcel()" class="button alt icon fa-download">EXCEL</a>
         </div>
       </div>
     </section>
@@ -119,8 +131,11 @@
     >
 
     <!-- Footer -->
-    <footer id="footer" class="wrapper">
-	</footer>
-	<script id="dsq-count-scr" src="//curryfordev.disqus.com/count.js" async></script>
+    <footer id="footer" class="wrapper"></footer>
+    <script
+      id="dsq-count-scr"
+      src="//curryfordev.disqus.com/count.js"
+      async
+    ></script>
   </body>
 </html>

@@ -21,18 +21,20 @@
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.js"
-      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
         $(".head").load("header.html");
         $("nav").load("nav.html");
         $("footer").load("footer.html");
       });
+      downExcel = () => {
+        $("#level").table2excel({
+          exclude: ".excludeThisClass",
+          name: "Level 5",
+          filename: "level5.xls"
+        });
+      };
     </script>
   </head>
   <body class="subpage">
@@ -56,8 +58,9 @@
             </header>
             <hr />
             <p lang="ko">
-              당신은 인류의 마지막 희망입니다. 머신러닝 따위는 당신의 휴먼러닝에 비할 바가 아닙니다.
-              <br>부디 로봇에 의한 인류의 멸망을 막아주시길…
+              당신은 인류의 마지막 희망입니다. 머신러닝 따위는 당신의 휴먼러닝에
+              비할 바가 아닙니다.
+              <br />부디 로봇에 의한 인류의 멸망을 막아주시길…
             </p>
           </div>
         </div>
@@ -80,12 +83,13 @@
           document.getElementById("contents").innerHTML =
             document.getElementById("contents").innerHTML + tuple;
         });
+        document.getElementById("date").innerHTML = "2019.09.03";
       });
     </script>
     <section id="four" class="wrapper style3">
       <div class="inner">
         <div class="table-wrapper">
-          <table class="alt">
+          <table id="level" class="alt">
             <thead>
               <tr>
                 <th>Name</th>
@@ -95,7 +99,14 @@
               </tr>
             </thead>
             <tbody id="contents"></tbody>
+            <tfoot>
+              <tr><td colspan="3"></td><td style="text-align: right;" id="date"></td></tr>
+            </tfoot>
           </table>
+        </div>
+        <br />
+        <div style="width: 20%; float: right;">
+          <a onclick="downExcel()" class="button alt icon fa-download">EXCEL</a>
         </div>
       </div>
     </section>
