@@ -4225,3 +4225,5 @@
 		}
 
 	:lang(ko) {font-family: 'Noto Sans KR', sans-serif;}
+	
+	#disqus_thread {margin: 50px auto; width: 60%;}

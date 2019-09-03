@@ -22,22 +22,21 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+    <script src="assets/js/table.js"></script>
     <script type="text/javascript">
+      const num = 2;
       $(document).ready(function() {
         $(".head").load("header.html");
         $("nav").load("nav.html");
+        $(".table").load("table.html");
         $("footer").load("footer.html");
+        makeTable(num);
       });
-      downExcel = () => {
-        $("#level").table2excel({
-          exclude: ".excludeThisClass",
-          name: "Level 2",
-          filename: "level2.xls",
-          });
-      }
     </script>
   </head>
   <body class="subpage">
+
     <!-- Header -->
     <header id="header" class="head"></header>
 
@@ -46,68 +45,33 @@
 
     <!-- Intro -->
     <section id="one" class="wrapper style2">
-      <div class="inner">
-        <div class="box">
-          <div class="image fit">
-            <img class="fade" src="images/level2.jpg" alt="" />
-          </div>
-          <div class="content align-center">
-            <header>
-              <h2>Level 2</h2>
-              <p lang="ko">당신은 코딩 어린이입니다!</p>
-            </header>
-            <hr />
-            <p lang="ko">
-              이제는 무언가 좀 알 것 같죠? 하지만 그렇기에 보이는 난관도 있을
-              거에요.<br />
-              지친다면 조금 쉬어도 좋아요. 그러고 나서 다시금 도전합시다!
-            </p>
+        <div class="inner">
+          <div class="box">
+            <div class="image fit">
+              <img src="images/level2.jpg" alt="" />
+            </div>
+            <div class="content align-center">
+              <header>
+                <h2>Level 2</h2>
+                <p lang="ko">당신은 코딩 어린이입니다!</p>
+              </header>
+              <hr />
+              <p lang="ko">
+                이제는 무언가 좀 알 것 같죠? 하지만 그렇기에 보이는 난관도 있을
+                거에요.<br />
+                지친다면 조금 쉬어도 좋아요. 그러고 나서 다시금 도전합시다!
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
     <!-- Table -->
-    <script>
-      var jsonLocation = "assets/json/level2.json";
-      $.getJSON(jsonLocation, function(data) {
-        $.each(data, function(I, item) {
-          let name = `<tr><td lang="ko"><strong><a style="color: #ffffff" target="_blank" href="${item.url}">${item.name}</a></strong></td>`;
-          let category = `<td lang="ko">${item.category}</td>`;
-          let success = `<td lang="ko">${item.success}명</td>`;
-          let q = `https://www.google.com/search?q=${item.name}+프로그래머스+JAVA`;
-          let expl =
-            '<td><a target="_blank" href="' +
-            q +
-            '" class="button alt small icon fa-search">WEB</a></td></tr>';
-          let tuple = name + category + success + expl;
-          document.getElementById("contents").innerHTML =
-            document.getElementById("contents").innerHTML + tuple;
-        });
-      });
-    </script>
-    <section id="four" class="wrapper style3">
-      <div class="inner">
-        <div class="table-wrapper">
-          <table id="level" class="alt">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Success</th>
-                <th>Explanation</th>
-              </tr>
-            </thead>
-            <tbody id="contents"></tbody>
-          </table>
-        </div>
-        <br>
-        <div style="width: 20%; float: right;">
-          <a onclick="downExcel()" class="button alt icon fa-download">EXCEL</a>
-          </div>
-      </div>
+    <section id="four" class="wrapper style3 table">
     </section>
+
     <!-- Comment -->
-    <div style="margin: 50px auto; width: 60%;" id="disqus_thread"></div>
+    <div id="disqus_thread"></div>
     <script>
       (function() {
         // DON'T EDIT BELOW THIS LINE
