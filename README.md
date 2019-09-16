@@ -1,4 +1,4 @@
-# Project_ColorCode ([http://curryfordev.coo.kr/](http://curryfordev.coo.kr/))
+# Project_CurryForDev ([http://curryfordev.coo.kr/](http://curryfordev.coo.kr/))
 > 프로그래머스 문제들을 레벨별 분류 및 문제풀이 성공자 순으로 정렬하여 원활한 알고리즘 학습을 돕는 Web Application
 
 * 풀이 정보 제공
